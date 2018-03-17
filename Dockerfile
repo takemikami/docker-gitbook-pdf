@@ -11,5 +11,6 @@ RUN yum -y install wget \
  && cd /opt && tar zxf /tmp/node-${NODEJS_VERSION}-linux-x64.tar.gz \
  && ln -s /opt/node-${NODEJS_VERSION}-linux-x64/bin/node /usr/bin/node \
  && ln -s /opt/node-${NODEJS_VERSION}-linux-x64/bin/npm /usr/bin/npm \
+ && npm install -g yarn \
  && ln -s /opt/node-${NODEJS_VERSION}-linux-x64/bin/yarn /usr/bin/yarn \
  && rm /tmp/node-${NODEJS_VERSION}-linux-x64.tar.gz

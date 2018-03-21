@@ -14,3 +14,14 @@ RUN yum -y install wget \
  && npm install -g yarn \
  && ln -s /opt/node-${NODEJS_VERSION}-linux-x64/bin/yarn /usr/bin/yarn \
  && rm /tmp/node-${NODEJS_VERSION}-linux-x64.tar.gz
+
+# install gdirve
+RUN yum install -y git \
+ && wget https://dl.google.com/go/go1.10.linux-amd64.tar.gz \
+ && tar vzfx go1.10.linux-amd64.tar.gz \
+ && mv go /usr/local/ \
+ && ln -s /usr/local/go/bin/go /usr/local/bin/go \
+ && rm go1.10.linux-amd64.tar.gz \
+ && export GOPATH=/root/go \
+ && go get github.com/prasmussen/gdrive \
+ && ln -s /root/go/bin/gdrive /usr/local/bin/gdrive
